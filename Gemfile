@@ -33,14 +33,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+platforms :ruby do
+	group :deployment do
+		
+		gem 'pg', '~> 0.15'
 
-group :deployment do
-	
-	gem 'pg', '~> 0.15'
-
-	gem 'unicorn'
+		gem 'unicorn'
+	end
 end
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
