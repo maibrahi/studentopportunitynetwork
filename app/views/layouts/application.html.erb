@@ -7,18 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Student Opportunity Network", root_path, :class =>'navbar-brand' %>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+            	<% if current_user %>
+					<button><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button>
+				<% else %>
+		          	<%= form_for(:user, :url => session_path(:user)) do |f| %>
+		  				<%= f.text_field :email, :class=>'form-control', :autofocus => true, :placeholder => 'Email address' %>
+						<%= f.password_field :password, :class=>'form-control', :placeholder => 'Password' %>
+						<%= f.submit 'Sign in', :class=>'btn btn-primary'  %>
+						<div  class="btn btn-primary"><%= link_to "Sign Up", new_user_registration_path %></div>
+					<% end %>
+				<% end %>
+			</div>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+
+	<div class="jumbotron">
+      <div class="container">
+        <h1>Student Opportunity Network</h1>
+      </div>
+    </div>
+
+
+
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li><%= link_to "Home", root_path%></li>
 			<li><%= link_to "About Us", welcome_about_path%></li>
 			<li><%= link_to "Contact", welcome_contact_path%></li>
-			<% if current_user %>
-				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-			<% else %>
-				<li><%= link_to "Sign Up", new_user_registration_path %></li>
-				<li><%= link_to "Sign In", new_user_session_path%></li>
-			<% end %>
-				
 		</ul>
 	<% if flash[:notice] %>
 		<div class="alert alert-success">
