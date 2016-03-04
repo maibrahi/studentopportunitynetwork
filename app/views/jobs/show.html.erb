@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @job.type_of_opportunity %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @job.company_name %>
+</p>
+
+<p>
+  <strong>Closing date:</strong>
+  <%= @job.closing_date %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @job.starting_date %>
+</p>
+
+<p>
+  <strong>Description text:</strong>
+  <%= @job.description_text %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @job.location %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @job.confirmed %>
+</p>
+
+<p>
+  <strong>Fulltime:</strong>
+  <%= @job.fulltime %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @job.paid %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @job.salary %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Destroy', @job, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,4 @@
+json.array!(@competitions) do |competition|
+  json.extract! competition, :id, :title, :type_of_opportunity, :company_name, :closing_date, :starting_date, :description_text, :location, :confirmed
+  json.url competition_url(competition, format: :json)
+end

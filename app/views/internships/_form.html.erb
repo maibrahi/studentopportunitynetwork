@@ -1,0 +1,61 @@
+<%= form_for(@internship) do |f| %>
+  <% if @internship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@internship.errors.count, "error") %> prohibited this internship from being saved:</h2>
+
+      <ul>
+      <% @internship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_opportunity %><br>
+    <%= f.text_field :type_of_opportunity %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :closing_date %><br>
+    <%= f.datetime_select :closing_date %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_date %><br>
+    <%= f.datetime_select :starting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :description_text %><br>
+    <%= f.text_field :description_text %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :confirmed %><br>
+    <%= f.check_box :confirmed %>
+  </div>
+  <div class="field">
+    <%= f.label :fulltime %><br>
+    <%= f.check_box :fulltime %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.check_box :paid %>
+  </div>
+  <div class="field">
+    <%= f.label :salary %><br>
+    <%= f.text_field :salary %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

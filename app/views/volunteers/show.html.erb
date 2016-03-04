@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @volunteer.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @volunteer.type_of_opportunity %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @volunteer.company_name %>
+</p>
+
+<p>
+  <strong>Closing date:</strong>
+  <%= @volunteer.closing_date %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @volunteer.starting_date %>
+</p>
+
+<p>
+  <strong>Description text:</strong>
+  <%= @volunteer.description_text %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @volunteer.location %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @volunteer.confirmed %>
+</p>
+
+<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<%= link_to 'Back', volunteers_path %>

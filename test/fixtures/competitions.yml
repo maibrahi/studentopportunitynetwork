@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  company_name: MyString
+  closing_date: 2016-03-04 16:38:17
+  starting_date: 2016-03-04 16:38:17
+  description_text: MyString
+  location: MyString
+  confirmed: false
+
+two:
+  title: MyString
+  type: 
+  company_name: MyString
+  closing_date: 2016-03-04 16:38:17
+  starting_date: 2016-03-04 16:38:17
+  description_text: MyString
+  location: MyString
+  confirmed: false

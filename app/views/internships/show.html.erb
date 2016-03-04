@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @internship.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @internship.type_of_opportunity %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @internship.company_name %>
+</p>
+
+<p>
+  <strong>Closing date:</strong>
+  <%= @internship.closing_date %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @internship.starting_date %>
+</p>
+
+<p>
+  <strong>Description text:</strong>
+  <%= @internship.description_text %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @internship.location %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @internship.confirmed %>
+</p>
+
+<p>
+  <strong>Fulltime:</strong>
+  <%= @internship.fulltime %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @internship.paid %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @internship.salary %>
+</p>
+
+<%= link_to 'Edit', edit_internship_path(@internship) %> |
+<%= link_to 'Back', internships_path %>

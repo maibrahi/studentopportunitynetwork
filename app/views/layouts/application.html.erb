@@ -47,11 +47,23 @@
 
 
 	<div class="container">
+
+		<% if !current_user %>
 		<ul class="nav nav-tabs">
 			<li><%= link_to "Home", root_path%></li>
 			<li><%= link_to "About Us", welcome_about_path%></li>
 			<li><%= link_to "Contact", welcome_contact_path%></li>
 		</ul>
+		<% else %>
+		<ul class="nav nav-tabs">
+			<li><%= link_to "Jobs", jobs_path%></li>
+			<li><%= link_to "Internships", internships_path%></li>
+			<li><%= link_to "Competitions", competitions_path%></li>
+			<li><%= link_to "Volunteering", volunteers_path%></li>
+		</ul>
+		<% end %>
+
+
 		<% if flash[:notice] %>
 		<div class="alert alert-success">
 			<button type="button" class="close" data-dismiss="alert">&times;

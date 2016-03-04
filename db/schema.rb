@@ -11,15 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218171301) do
+ActiveRecord::Schema.define(version: 20160304163817) do
 
-  create_table "articles", force: :cascade do |t|
+  create_table "competitions", force: :cascade do |t|
     t.string   "title"
-    t.string   "desciption"
-    t.text     "post"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "type_of_opportunity"
+    t.string   "company_name"
+    t.datetime "closing_date"
+    t.datetime "starting_date"
+    t.string   "description_text"
+    t.string   "location"
+    t.boolean  "confirmed"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "internships", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type_of_opportunity"
+    t.string   "company_name"
+    t.datetime "closing_date"
+    t.datetime "starting_date"
+    t.string   "description_text"
+    t.string   "location"
+    t.boolean  "confirmed"
+    t.boolean  "fulltime"
+    t.boolean  "paid"
+    t.string   "salary"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type_of_opportunity"
+    t.string   "company_name"
+    t.datetime "closing_date"
+    t.datetime "starting_date"
+    t.string   "description_text"
+    t.string   "location"
+    t.boolean  "confirmed"
+    t.boolean  "fulltime"
+    t.boolean  "paid"
+    t.string   "salary"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,5 +75,18 @@ ActiveRecord::Schema.define(version: 20160218171301) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type_of_opportunity"
+    t.string   "company_name"
+    t.datetime "closing_date"
+    t.datetime "starting_date"
+    t.string   "description_text"
+    t.string   "location"
+    t.boolean  "confirmed"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
 end

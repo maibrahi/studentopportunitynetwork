@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  company_name: MyString
+  closing_date: 2016-03-04 16:28:55
+  starting_date: 2016-03-04 16:28:55
+  description_text: MyString
+  location: MyString
+  confirmed: false
+  fulltime: false
+  paid: false
+  salary: MyString
+
+two:
+  title: MyString
+  type: 
+  company_name: MyString
+  closing_date: 2016-03-04 16:28:55
+  starting_date: 2016-03-04 16:28:55
+  description_text: MyString
+  location: MyString
+  confirmed: false
+  fulltime: false
+  paid: false
+  salary: MyString
