@@ -1,28 +1,29 @@
-== README
+== Student Opportunity Network README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+= The student opportunity network is a website that allows students to quickly search for internships, part-time jobs, volunteering programs and competitions that might be relevant to them. The web app is currently in development and any bug reports would be greatly appreciated.
 
-Things you may want to cover:
+This web application currently requires splite to be installed when running in the development environment and postgres when running in the deployment environment
 
-* Ruby version
+To run this web app locally:
 
-* System dependencies
+* Have Ruby 2.1 or higher installed
 
-* Configuration
+* Have Rails 4.2.5 installed
 
-* Database creation
+* I recommend using railsinstaller to install if you do not have rails and ruby installed already
 
-* Database initialization
+* In the command line at the web app directory run the following commands:
 
-* How to run the test suite
+	1. gem install bundler
 
-* Services (job queues, cache servers, search engines, etc.)
+	2. bundle install
 
-* Deployment instructions
+	3. rake db:create
 
-* ...
+	4. rake db:migrate
+
+	5. rails server
+
+* The web server is now powered on, and the web app is viewable at localhost:3000
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
