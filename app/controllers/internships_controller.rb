@@ -1,6 +1,20 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index]
+  before_filter :require_permission, only: [:edit, :destroy, :update]
+  before_filter :must_be_company, only: [:new, :create]
+
+  def must_be_company
+    unless current_user && current_user.company?
+      redirect_to root_path, notice: "Must be a company to create posts"
+    end
+  end
+
+  def require_permission
+    if current_user != Internship.find(params[:id]).user
+      redirect_to root_path, notice: "This post is not owned by your account"
+    end
+  end
   
   # GET /internships
   # GET /internships.json
@@ -26,7 +40,7 @@ class InternshipsController < ApplicationController
   # POST /internships.json
   def create
     @internship = Internship.new(internship_params)
-
+    @internship.user = current_user
     respond_to do |format|
       if @internship.save
         format.html { redirect_to @internship, notice: 'Internship was successfully created.' }

@@ -13,6 +13,8 @@ class CreateInternships < ActiveRecord::Migration
       t.boolean :paid
       t.string :salary
 
+      t.integer :user_id
+
       t.timestamps null: false
     end
   end

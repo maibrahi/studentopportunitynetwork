@@ -1,7 +1,21 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index]
-  
+  before_filter :require_permission, only: [:edit, :destroy, :update]
+  before_filter :must_be_company, only: [:new, :create]
+
+  def must_be_company
+    unless current_user && current_user.company?
+      redirect_to root_path, notice: "Must be a company to create posts"
+    end
+  end
+
+  def require_permission
+    if current_user != Internship.find(params[:id]).user
+      redirect_to root_path, notice: "This post is not owned by your account"
+    end
+  end
+
   # GET /jobs
   # GET /jobs.json
   def index

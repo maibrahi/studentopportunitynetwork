@@ -10,6 +10,8 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string :location
       t.boolean :confirmed
 
+      t.integer :user_id
+
       t.timestamps null: false
     end
   end

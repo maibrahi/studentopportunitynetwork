@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.text     "description_text"
     t.string   "location"
     t.boolean  "confirmed"
+    t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.boolean  "fulltime"
     t.boolean  "paid"
     t.string   "salary"
+    t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.boolean  "fulltime"
     t.boolean  "paid"
     t.string   "salary"
+    t.integer  "user_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -91,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.text     "description_text"
     t.string   "location"
     t.boolean  "confirmed"
+    t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
