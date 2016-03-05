@@ -6,7 +6,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string :company_name
       t.datetime :closing_date
       t.datetime :starting_date
-      t.string :description_text
+      t.text :description_text
       t.string :location
       t.boolean :confirmed
 

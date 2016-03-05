@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.string   "company_name"
     t.datetime "closing_date"
     t.datetime "starting_date"
-    t.string   "description_text"
+    t.text     "description_text"
     t.string   "location"
     t.boolean  "confirmed"
     t.datetime "created_at",          null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.string   "company_name"
     t.datetime "closing_date"
     t.datetime "starting_date"
-    t.string   "description_text"
+    t.text     "description_text"
     t.string   "location"
     t.boolean  "confirmed"
     t.boolean  "fulltime"
@@ -48,29 +48,35 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.string   "company_name"
     t.datetime "closing_date"
     t.datetime "starting_date"
-    t.string   "description_text"
+    t.text     "description_text"
     t.string   "location"
-    t.boolean  "confirmed"
+    t.boolean  "confirmed",           default: false
     t.boolean  "fulltime"
     t.boolean  "paid"
     t.string   "salary"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "admin",                  default: false
+    t.boolean  "company",                default: false
+    t.string   "company_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "profile_description"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -82,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160304163817) do
     t.string   "company_name"
     t.datetime "closing_date"
     t.datetime "starting_date"
-    t.string   "description_text"
+    t.text     "description_text"
     t.string   "location"
     t.boolean  "confirmed"
     t.datetime "created_at",          null: false
