@@ -2,18 +2,24 @@
 
 <h1>Listing Volunteers</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Title</th>
+      <!--
       <th>Type</th>
+    -->
       <th>Company name</th>
       <th>Closing date</th>
+      <!--
       <th>Starting date</th>
+    -->
       <th>Description text</th>
+      <!--
       <th>Location</th>
       <th>Confirmed</th>
-      <th colspan="3"></th>
+    -->
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -21,16 +27,24 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= volunteer.title %></td>
+        <!--
         <td><%= volunteer.type_of_opportunity %></td>
+      -->
         <td><%= volunteer.company_name %></td>
         <td><%= volunteer.closing_date %></td>
+        <!--
         <td><%= volunteer.starting_date %></td>
+      -->
         <td><%= volunteer.description_text %></td>
+        <!--
         <td><%= volunteer.location %></td>
         <td><%= volunteer.confirmed %></td>
+      -->
         <td><%= link_to 'Show', volunteer %></td>
+        <!--
         <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
         <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      -->
       </tr>
     <% end %>
   </tbody>

@@ -11,7 +11,7 @@ class CompetitionsController < ApplicationController
   end
 
   def require_permission
-    if current_user != Competition.find(params[:id]).user
+    unless current_user == Competition.find(params[:id]).user || current_user.admin?
       redirect_to root_path, notice: "This post is not owned by your account"
     end
   end
@@ -40,9 +40,14 @@ class CompetitionsController < ApplicationController
   def create
     @competition = Competition.new(competition_params)
     @competition.user = current_user
+    if current_user.admin?
+      @competition.confirmed = true
+    else
+      @competition.confirmed = false
+    end
     respond_to do |format|
       if @competition.save
-        format.html { redirect_to @competition, notice: 'Competition was successfully created.' }
+        format.html { redirect_to @competition, notice: 'Competition was successfully created. Waiting for admin to confirm.' }
         format.json { render :show, status: :created, location: @competition }
       else
         format.html { render :new }

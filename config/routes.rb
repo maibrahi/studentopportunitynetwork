@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   authenticated :user do
-    #root :to => 'articles#index', as: :authenticated_root
     root :to => 'welcome#index', as: :authenticated_root
   end
   root :to => 'welcome#index'
