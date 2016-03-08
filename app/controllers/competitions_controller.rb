@@ -11,7 +11,7 @@ class CompetitionsController < ApplicationController
   end
 
   def require_permission
-    if current_user != Internship.find(params[:id]).user
+    if current_user != Competition.find(params[:id]).user
       redirect_to root_path, notice: "This post is not owned by your account"
     end
   end
@@ -39,7 +39,7 @@ class CompetitionsController < ApplicationController
   # POST /competitions.json
   def create
     @competition = Competition.new(competition_params)
-
+    @competition.user = current_user
     respond_to do |format|
       if @competition.save
         format.html { redirect_to @competition, notice: 'Competition was successfully created.' }

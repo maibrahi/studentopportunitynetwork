@@ -11,7 +11,7 @@ class VolunteersController < ApplicationController
   end
 
   def require_permission
-    if current_user != Internship.find(params[:id]).user
+    if current_user != Volunteer.find(params[:id]).user
       redirect_to root_path, notice: "This post is not owned by your account"
     end
   end
@@ -40,7 +40,7 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(volunteer_params)
-
+    @volunteer.user = current_user
     respond_to do |format|
       if @volunteer.save
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }

@@ -11,7 +11,7 @@ class JobsController < ApplicationController
   end
 
   def require_permission
-    if current_user != Internship.find(params[:id]).user
+    if current_user != Job.find(params[:id]).user
       redirect_to root_path, notice: "This post is not owned by your account"
     end
   end
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-
+    @job.user = current_user
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
