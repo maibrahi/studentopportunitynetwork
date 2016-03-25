@@ -6,9 +6,22 @@
 body {
   padding-top: 50px;
   padding-bottom: 20px;
-   background: image-url('bg-grid.png');
+   background: image-url('bg-grid-orange.png');
 }
 
 .main_body {
    background: white;	
+}
+
+.navbar-inverse {
+    background-color: #3854A7;
+    border-color: #132C78;
+}
+
+.jumbotron {
+    background-color: #E87312;
+}
+
+.jumbotron h1{
+	color: white;
 }
