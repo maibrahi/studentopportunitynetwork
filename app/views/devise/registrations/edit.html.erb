@@ -1,66 +1,160 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<style type="text/css">
+	.cancel-account {
+		margin: 200px auto;
+	}
+	.user-photo {
+		display: block;
+		margin: auto;
+	}
+	.form-signin h2{
+		margin: 15px 0;
+		text-align: center;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+		margin-bottom: 10px;
+	}
+	.form-signin .checkbox {
+		font-weight: normal;
+	}
+	.form-signin .form-control {
+		position: relative;
+		height: auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 10px;
+		font-size: 16px;
+	}
+	.form-signin .form-control:focus {
+		z-index: 2;
+	}
+	.form-signin input[type="email"] {
+		margin-bottom: -1px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.form-signin input[type="password"] {
+		margin-bottom: 10px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		}
+	.content {
+		margin: 20px 10px;
+	}
+	.back-button {
+		margin: 50px auto;
+		text-align: center;
+	}
+	
+</style>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="content">
+	<div class="form-signin col-md-7">
+		<h2>Edit User Profile</h2>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+		<%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+		<div class="field">
+			<%= f.label :email %><br />
+			<%= f.email_field :email, autofocus: true, :placeholder => 'Email address',:class =>'form-control' %>
+		</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+		<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+		<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+		<% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+			<%= f.password_field :password, autocomplete: "off" , :placeholder => 'New Password (leave blank if you dont want to change it)',:class =>'form-control'%>
+		</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :password_confirmation %><br />
+			<%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Confirm New Password',:class =>'form-control' %>
+		</div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+			<%= f.password_field :current_password, autocomplete: "off" , :placeholder => 'Current Password',:class =>'form-control'%>
+		</div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :first_name %><br />
+			<%= f.text_field :first_name, autocomplete: "off" , :placeholder => 'First Name',:class =>'form-control'%>
+		</div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :last_name %><br />
+			<%= f.text_field :last_name, autocomplete: "off", :placeholder => 'Last Name',:class =>'form-control' %>
+		</div>
 
-  <div class="field">
-    <%= f.label :profile_description %><br />
-    <%= f.text_area :profile_description, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :profile_description %><br />
+			<%= f.text_area :profile_description, autocomplete: "off" , :placeholder => 'Profile Description',:class =>'form-control', :rows => '8'%>
+		</div>
 
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name, autocomplete: "off" %>
-  </div>
+		<div class="field">
+			<%= f.label :company_name %><br />
+			<%= f.text_field :company_name, autocomplete: "off" , :placeholder => 'Company Name',:class =>'form-control'%>
+		</div>
 
-  <div class="checkbox">
-    <div class="field">
-        <%= f.check_box :company %>
-        <%= f.label :company %>
-    </div>
-  </div>
+		<div class="checkbox">
+			<div class="field">
+				<%= f.check_box :company %>
+				<%= f.label :company %>
+			</div>
+		</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+		<div class="actions">
+			<%= f.submit "Update",:class=>'btn btn-lg btn-primary btn-block' %>
+		</div>
+		<% end %>
+	</div>
+	<div class="col-md-5">
+		<canvas id="user-icon" class="user-photo" width="256" height="256"></canvas>
+		<div class="back-button">
+			<%= link_to "Back", :back, :class=>'btn btn-success btn-lg' %>
+		</div>
+		<div class="cancel-account">
+			<h3>Cancel my account</h3>
+			<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=>'btn btn-warning' %></p>
+			<%= link_to "Back", :back, :class=>'btn btn-success' %>
+		</div>
+	</div>
 
-<h3>Cancel my account</h3>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<script type="text/javascript">
+	var colours = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50", "#f1c40f", "#e67e22", "#e74c3c", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"];
 
-<%= link_to "Back", :back %>
+	var name = document.getElementById("user_first_name").value,
+	    nameSplit = name.split(" "),
+	    initials = nameSplit[0].charAt(0).toUpperCase() + nameSplit[0].charAt(1).toUpperCase();
+
+	var charIndex = initials.charCodeAt(0) - 65,
+	    colourIndex = charIndex % 19;
+
+	var canvas = document.getElementById("user-icon");
+	var context = canvas.getContext("2d");
+
+	var canvasWidth = $(canvas).attr("width"),
+	    canvasHeight = $(canvas).attr("height"),
+	    canvasCssWidth = canvasWidth,
+	    canvasCssHeight = canvasHeight;
+
+	if (window.devicePixelRatio) {
+	    $(canvas).attr("width", canvasWidth * window.devicePixelRatio);
+	    $(canvas).attr("height", canvasHeight * window.devicePixelRatio);
+	    $(canvas).css("width", canvasCssWidth);
+	    $(canvas).css("height", canvasCssHeight);
+	    context.scale(window.devicePixelRatio, window.devicePixelRatio);
+	}
+
+	context.fillStyle = colours[colourIndex];
+	context.fillRect (0, 0, canvas.width, canvas.height);
+	context.font = "128px Arial";
+	context.textAlign = "center";
+	context.fillStyle = "#FFF";
+	context.fillText(initials, canvasCssWidth / 2, canvasCssHeight / 1.5);
+</script>
