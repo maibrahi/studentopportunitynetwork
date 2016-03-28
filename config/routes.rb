@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :competitions
+  resources :competitions do
+    resources :comments, module: :competitions
+  end
   resources :volunteers
   resources :internships
   resources :jobs
   devise_for :users
+
   get 'welcome/index'
-
   get 'welcome/about'
-
   get 'welcome/contact'
 
   #resources :articles

@@ -39,6 +39,24 @@
   <strong>Confirmed:</strong>
   <%= @competition.confirmed %>
 </p>
+<% if current_user == @competition.user %>
+  <h3>Applications: </h3>
+  <% @competition.comments.each do |comment| %>
+    <div class="well">
+      <%= comment.body %> <br>
+      <%= comment.user %> <br>
+    </div>
+
+  <% end %>
+<% end %>
+
+<h3>New Application:</h3>
+<%= form_for [@competition, Comment.new] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control", placeholder: "Add a application" %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
 
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>
