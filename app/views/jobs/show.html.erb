@@ -55,6 +55,25 @@
   <%= @job.salary %>
 </p>
 
+<% if current_user == @job.user %>
+  <h3>Applications: </h3>
+  <% @job.comments.each do |comment| %>
+    <div class="well">
+      <%= comment.body %> <br>
+      <%= comment.user %> <br>
+    </div>
+
+  <% end %>
+<% end %>
+
+<h3>New Application:</h3>
+<%= form_for [@job, Comment.new] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
+  </div>
+  <%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
+<% end %>
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Destroy', @job, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', jobs_path %>

@@ -39,6 +39,7 @@
   <strong>Confirmed:</strong>
   <%= @competition.confirmed %>
 </p>
+
 <% if current_user == @competition.user %>
   <h3>Applications: </h3>
   <% @competition.comments.each do |comment| %>
@@ -53,7 +54,7 @@
 <h3>New Application:</h3>
 <%= form_for [@competition, Comment.new] do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "Add a application" %>
+    <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
   </div>
   <%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
 <% end %>

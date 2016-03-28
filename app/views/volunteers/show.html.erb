@@ -40,5 +40,24 @@
   <%= @volunteer.confirmed %>
 </p>
 
+<% if current_user == @volunteer.user %>
+  <h3>Applications: </h3>
+  <% @volunteer.comments.each do |comment| %>
+    <div class="well">
+      <%= comment.body %> <br>
+      <%= comment.user %> <br>
+    </div>
+
+  <% end %>
+<% end %>
+
+<h3>New Application:</h3>
+<%= form_for [@volunteer, Comment.new] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
+  </div>
+  <%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
+<% end %>
+
 <%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
 <%= link_to 'Back', volunteers_path %>

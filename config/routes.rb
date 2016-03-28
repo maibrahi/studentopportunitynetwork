@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   resources :competitions do
     resources :comments, module: :competitions
   end
-  resources :volunteers
-  resources :internships
-  resources :jobs
+  resources :volunteers do
+    resources :comments, module: :volunteers
+  end
+  resources :internships do
+    resources :comments, module: :internships
+  end
+  resources :jobs do
+    resources :comments, module: :jobs
+  end
   devise_for :users
 
   get 'welcome/index'
