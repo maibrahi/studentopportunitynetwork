@@ -5,6 +5,9 @@
 		padding: 15px;
 		margin: 0 auto;
 	}
+	.form-signin h2 {
+		text-align: center;
+	}
 	.form-signin .form-signin-heading,
 	.form-signin .checkbox {
 		margin-bottom: 10px;
@@ -34,29 +37,34 @@
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 		}
+	.add-margin {
+		margin: 20px;
+	}
 	</style>
-		<div class="form-signin">
-			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<div class="field">
-    			<%= f.email_field :email, :autofocus => true, :placeholder => 'Email address',:class =>'form-control' %>
-  			</div>
-			<div class="field">
-    			<%= f.password_field :password, :placeholder => 'Password',:class =>'form-control'%>
-  			</div>
-			<div class="checkbox">
-				<% if devise_mapping.rememberable? -%>
-    				<div class="field">
-      					<%= f.check_box :remember_me %>
-      					<%= f.label :remember_me %>
-    				</div>
-  				<% end -%>
-			</div>
-			<div class="actions">
-    			<%= f.submit "Sign in",:class=>'btn btn-lg btn-primary btn-block' %>
-  			</div>
+		<div class="add-margin">
+			<div class="form-signin well">
+				<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<h2 class="form-signin-heading">Please Sign In</h2>
+				<div class="field">
+	    			<%= f.email_field :email, :autofocus => true, :placeholder => 'Email address',:class =>'form-control' %>
+	  			</div>
+				<div class="field">
+	    			<%= f.password_field :password, :placeholder => 'Password',:class =>'form-control'%>
+	  			</div>
+				<div class="checkbox">
+					<% if devise_mapping.rememberable? -%>
+	    				<div class="field">
+	      					<%= f.check_box :remember_me %>
+	      					<%= f.label :remember_me %>
+	    				</div>
+	  				<% end -%>
+				</div>
+				<div class="actions">
+	    			<%= f.submit "Sign in",:class=>'btn btn-lg btn-primary btn-block' %>
+	  			</div>
 
-			<%= render "devise/shared/links" %>
+				<%= render "devise/shared/links" %>
+			</div>
 		</div>
   
 <% end %>
