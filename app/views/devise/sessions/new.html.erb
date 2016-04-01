@@ -40,6 +40,9 @@
 	.add-margin {
 		margin: 20px;
 	}
+	.add-margin-left {
+		margin-left: 20px;
+	}
 	</style>
 		<div class="add-margin">
 			<div class="form-signin well">
@@ -51,6 +54,7 @@
 				<div class="field">
 	    			<%= f.password_field :password, :placeholder => 'Password',:class =>'form-control'%>
 	  			</div>
+	  			<div class="add-margin-left">
 				<div class="checkbox">
 					<% if devise_mapping.rememberable? -%>
 	    				<div class="field">
@@ -58,6 +62,7 @@
 	      					<%= f.label :remember_me %>
 	    				</div>
 	  				<% end -%>
+				</div>
 				</div>
 				<div class="actions">
 	    			<%= f.submit "Sign in",:class=>'btn btn-lg btn-primary btn-block' %>

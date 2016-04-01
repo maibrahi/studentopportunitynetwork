@@ -1,56 +1,106 @@
-<h2>Sign up</h2>
+<style type="text/css">
+	
+	.form-signin {
+		max-width: 660px;
+		padding: 15px;
+		margin: 0 auto;
+	}
+	.form-signin h2 {
+		text-align: center;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+		margin-bottom: 10px;
+	}
+	.form-signin .checkbox {
+		font-weight: normal;
+	}
+	.form-signin .form-control {
+		position: relative;
+		height: auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 10px;
+		font-size: 16px;
+	}
+	.form-signin .form-control:focus {
+		z-index: 2;
+	}
+	.form-signin input[type="email"] {
+		margin-bottom: -1px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.form-signin input[type="password"] {
+		margin-bottom: 10px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		}
+	.add-margin {
+		margin: 20px;
+	}
+	.add-margin-left {
+		margin-left: 20px;
+	}
+	</style>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="add-margin">
+<div class="form-signin well">
+	<h2>Sign up</h2>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	<%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+	<div class="field">
+		<%= f.label :email %><br />
+		<%= f.email_field :email, autofocus: true,:class =>'form-control' %>
+	</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :password %>
+		<% if @minimum_password_length %>
+		<em>(<%= @minimum_password_length %> characters minimum)</em>
+		<% end %><br />
+		<%= f.password_field :password, autocomplete: "off",:class =>'form-control' %>
+	</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation, autocomplete: "off" ,:class =>'form-control'%>
+	</div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :first_name %><br />
+		<%= f.text_field :first_name, autocomplete: "off" ,:class =>'form-control'%>
+	</div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :last_name %><br />
+		<%= f.text_field :last_name, autocomplete: "off" ,:class =>'form-control'%>
+	</div>
 
-  <div class="field">
-    <%= f.label :profile_description %><br />
-    <%= f.text_area :profile_description, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :profile_description %><br />
+		<%= f.text_area :profile_description, autocomplete: "off",:class =>'form-control' %>
+	</div>
 
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :company_name %><br />
+		<%= f.text_field :company_name, autocomplete: "off" ,:class =>'form-control'%>
+	</div>
 
-  <div class="checkbox">
-    <div class="field">
-        <%= f.check_box :company %>
-        <%= f.label :company %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
+	<div class="add-margin-left">
+		<div class="checkbox">
+			<div class="field">
+				<%= f.check_box :company %>
+				<%= f.label :company %>
+			</div>
+		</div>
+	</div>
+	<div class="actions">
+		<%= f.submit "Sign up" ,:class=>'btn btn-lg btn-primary btn-block'%>
+	</div>
+	<% end %>
+</div>
+</div>
 <%= render "devise/shared/links" %>

@@ -46,6 +46,9 @@
 		margin: 50px auto;
 		text-align: center;
 	}
+	.add-margin-left {
+		margin-left: 20px;
+	}
 	
 </style>
 
@@ -98,14 +101,14 @@
 			<%= f.label :company_name %><br />
 			<%= f.text_field :company_name, autocomplete: "off" , :placeholder => 'Company Name',:class =>'form-control'%>
 		</div>
-
-		<div class="checkbox">
-			<div class="field">
-				<%= f.check_box :company %>
-				<%= f.label :company %>
+		<div class="add-margin-left">
+			<div class="checkbox">
+				<div class="field">
+					<%= f.check_box :company %>
+					<%= f.label :company %>
+				</div>
 			</div>
 		</div>
-
 		<div class="actions">
 			<%= f.submit "Update",:class=>'btn btn-lg btn-primary btn-block' %>
 		</div>
