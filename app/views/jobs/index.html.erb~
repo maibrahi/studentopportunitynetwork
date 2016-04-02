@@ -1,22 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= image_tag('job-icon2.png')%>
-  Jobs
-</h1>
+<h1>Listing Jobs</h1>
 
-<table class="table table-hover">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Job</th>
+      <th>Title</th>
       <!--
       <th>Type Of Opportunity</
       <!--
       <th>Starting date</th>
       -->
-      <th>Company</th>
-      <th>Closing Date</th>
-      <!--<th>Description</th>-->
+      <th>Company name</th>
+      <th>Closing date</th>
+      <th>Description</th>
       <th>Location</th>
       <!--
       <th>Confirmed</th>
@@ -24,38 +21,33 @@
       <th>Paid</th>
       <th>Salary</th>
       -->
-
+      
       <th colspan="1"></th>
-
+      
     </tr>
   </thead>
 
-  <tbody class = "fixed_row_height">
+  <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td>
-          <div>
-            <%= link_to job.title, job %><br/><br/>
-            <p><%= job.description_text %></p>
-          </div>
-        </td>
+        <td><%= job.title %></td>
         <!--
         <td><%= job.type_of_opportunity %></td>
         -->
-        <td><div><%= job.company_name %></div></td>
-        <td><div><%= job.closing_date %></div></td>
+        <td><%= job.company_name %></td>
+        <td><%= job.closing_date %></td>
         <!--
         <td><%= job.starting_date %></td>
         -->
-        <!--<td><%= job.description_text %></td>-->
-        <td><div><%= job.location %></div></td>
+        <td><%= job.description_text %></td>
+        <td><%= job.location %></td>
         <!--
         <td><%= job.confirmed %></td>
         <td><%= job.fulltime %></td>
         <td><%= job.paid %></td>
         <td><%= job.salary %></td>
         -->
-        <!--<td><%= link_to 'Show', job %></td>-->
+        <td><%= link_to 'Show', job %></td>
         <!--
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
       -->
@@ -65,4 +57,5 @@
 </table>
 
 <br>
-<%= link_to 'Add New Job', new_job_path %>
+
+<%= link_to 'New Job', new_job_path %>

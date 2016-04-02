@@ -29,8 +29,3 @@ body {
 .jumbotron h1{
 	color: white;
 }
-
-.fixed_row_height td div {
-  height: 120px;
-  overflow: hidden;
-}
