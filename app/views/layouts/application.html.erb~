@@ -41,7 +41,7 @@
 
 	<div class="jumbotron">
 		<div class="container">
-				<h1><%= image_tag('logo-with-text.png')%></h1>
+			<h1>Student Opportunity Network</h1>
 		</div>
 	</div>
 
