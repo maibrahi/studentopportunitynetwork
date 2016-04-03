@@ -1,23 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= image_tag('internship_icon1.png')%>
-  Internships
-</h1>
+<h1>Listing Internships</h1>
 
-<table class="table table-hover">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Internship</th>
+      <th>Title</th>
       <!--
       <th>Type Of Opportunity</th>
     -->
-      <th>Company</th>
-      <th>Closing Date</th>
+      <th>Company name</th>
+      <th>Closing date</th>
       <!--
       <th>Starting date</th>
-
-      <th>Description text</th>-->
+    -->
+      <th>Description text</th>
       <th>Location</th>
       <!--
       <th>Confirmed</th>
@@ -29,32 +26,28 @@
     </tr>
   </thead>
 
-  <tbody class = "fixed_row_height">
+  <tbody>
     <% @internships.each do |internship| %>
       <tr>
-        <td>
-          <div>
-            <%= link_to internship.title, internship %><br /><br />
-            <p><%= internship.description_text %></p>
-          </div>
-        </td>
-        <!--
         <td><%= internship.title %></td>
+        <!--
         <td><%= internship.type_of_opportunity %></td>
       -->
         <td><%= internship.company_name %></td>
         <td><%= internship.closing_date %></td>
         <!--
         <td><%= internship.starting_date %></td>
-        <td><%= internship.description_text %></td>
       -->
+        <td><%= internship.description_text %></td>
         <td><%= internship.location %></td>
         <!--
         <td><%= internship.confirmed %></td>
         <td><%= internship.fulltime %></td>
         <td><%= internship.paid %></td>
         <td><%= internship.salary %></td>
+      -->
         <td><%= link_to 'Show', internship %></td>
+        <!--
         <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
         <td><%= link_to 'Destroy', internship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       -->
@@ -65,4 +58,4 @@
 
 <br>
 
-<%= link_to 'Add New Internship', new_internship_path %>
+<%= link_to 'New Internship', new_internship_path %>
