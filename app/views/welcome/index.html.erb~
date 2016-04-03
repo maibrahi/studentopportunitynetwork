@@ -1,10 +1,5 @@
 <!--<h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>-->
-<div class="jumbotron">
-	<div class="container">
-			<h1><%= image_tag('logo-with-text.png')%></h1>
-	</div>
-</div>
 <style>
 .row img {
     display: block;
