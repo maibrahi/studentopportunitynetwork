@@ -1,42 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= image_tag('volunteer1')%>
-  Volunteer Work
-</h1>
+<h1>Listing Volunteers</h1>
 
-<table class="table table-hover">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Volunteer Work</th>
+      <th>Title</th>
       <!--
       <th>Type</th>
     -->
-      <th>Company</th>
-      <th>Closing Date</th>
+      <th>Company name</th>
+      <th>Closing date</th>
       <!--
       <th>Starting date</th>
     -->
-      <!--<th>Description text</th>-->
-
-      <th>Location</th>
+      <th>Description text</th>
       <!--
+      <th>Location</th>
       <th>Confirmed</th>
     -->
       <th colspan="1"></th>
     </tr>
   </thead>
 
-  <tbody class = "fixed_row_height">
+  <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <!--<td><%= volunteer.title %></td>-->
-        <td>
-          <div>
-            <%= link_to volunteer.title, volunteer %><br /><br />
-            <p><%= volunteer.description_text %></p>
-          </div>
-        </td>
+        <td><%= volunteer.title %></td>
         <!--
         <td><%= volunteer.type_of_opportunity %></td>
       -->
@@ -45,13 +35,12 @@
         <!--
         <td><%= volunteer.starting_date %></td>
       -->
-      <!--  <td><%= volunteer.description_text %></td>-->
-
+        <td><%= volunteer.description_text %></td>
+        <!--
         <td><%= volunteer.location %></td>
-      <!--
         <td><%= volunteer.confirmed %></td>
-        <td><%= link_to 'Show', volunteer %></td>
       -->
+        <td><%= link_to 'Show', volunteer %></td>
         <!--
         <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
         <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -63,4 +52,4 @@
 
 <br>
 
-<%= link_to 'Add New Volunteer Work', new_volunteer_path %>
+<%= link_to 'New Volunteer', new_volunteer_path %>
