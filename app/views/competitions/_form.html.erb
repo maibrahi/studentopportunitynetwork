@@ -1,45 +1,88 @@
 <%= form_for(@competition) do |f| %>
-  <% if @competition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+<% if @competition.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
 
-      <ul>
-      <% @competition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% @competition.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<style type="text/css">
+  .col-md-8{
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+    font-size: 20px;
+  }
+  .jobs-div{
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 0.5px;
+    padding-left: 0px;
+  }
+  .input-form-box{
+    background-color: #f5f5f5;
+    padding-left: 70px;
+    padding-bottom: 15px;
+  }
+  .field{
+    padding-top:15px;
+  }
+  .text-input{
+    width:80%;
+    height: 36px;
+  }
+  .selct-input{
+    height: 36px;
+    width: 10%;
+  }
+</style>
+<div class= "container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jobs-div">
+      <div class="input-form-box">
+        <div class="field">
+          <%= f.label :title %><br>
+          <%= f.text_field :title, :class => 'text-input',:placeholder => 'Title' %>
+        </div>
+        <div class="field">
+          <%= f.label :type_of_opportunity %><br>
+          <%= f.text_field :type_of_opportunity , :class => 'text-input', :placeholder => 'Type of Opportunity' %>
+        </div>
+        <div class="field">
+          <%= f.label :company_name %><br>
+          <%= f.text_field :company_name, :class => 'text-input', :placeholder => 'Company Name'  %>
+        </div>
+        <div class="field">
+          <%= f.label :location %><br>
+          <%= f.text_field :location, :class => 'text-input', :placeholder => 'Location'  %>
+        </div>
+        <div class="field">
+          <%= f.label :closing_date %><br>
+          <%= f.datetime_select :closing_date, :class => 'select-input' %>
+        </div>
+        <div class="field">
+          <%= f.label :starting_date %><br>
+          <%= f.datetime_select :starting_date, :class => 'select-input' %>
+        </div>
+        <div class="field">
+          <%= f.label :description_text %><br>
+          <%= f.text_area :description_text , :class => 'text-input', :placeholder => 'Description Text' %>
+        </div>
+        <div class="field">
+          <%= f.label :confirmed %><br>
+          <%= f.check_box :confirmed %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>  
   </div>
-  <div class="field">
-    <%= f.label :type_of_opportunity %><br>
-    <%= f.text_field :type_of_opportunity %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :closing_date %><br>
-    <%= f.datetime_select :closing_date %>
-  </div>
-  <div class="field">
-    <%= f.label :starting_date %><br>
-    <%= f.datetime_select :starting_date %>
-  </div>
-  <div class="field">
-    <%= f.label :description_text %><br>
-    <%= f.text_area :description_text %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

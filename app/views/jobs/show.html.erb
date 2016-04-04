@@ -1,77 +1,110 @@
+<!--Can someone look at this, my text align isnt working and I can find out why. May have something to do with the called create Aplication-->
+<style type="text/css">
+.container{
+  font-size:16px;
+  text-align: left;
+}
+.date-adjust{
+  position: relative;
+  left: 90px;
+}
+.col-md-10{
+  padding-top: 30px;
+  text-align: left;
+  font-size: 18px;
+  /*border-style:groove ;
+  border-width: 1px;*/
+}
+</style>
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @job.type_of_opportunity %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @job.company_name %>
-</p>
-
-<p>
-  <strong>Closing date:</strong>
-  <%= @job.closing_date %>
-</p>
-
-<p>
-  <strong>Starting date:</strong>
-  <%= @job.starting_date %>
-</p>
-
-<p>
-  <strong>Description text:</strong>
-  <%= @job.description_text %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @job.location %>
-</p>
-
-<p>
-  <strong>Confirmed:</strong>
-  <%= @job.confirmed %>
-</p>
-
-<p>
-  <strong>Fulltime:</strong>
-  <%= @job.fulltime %>
-</p>
-
-<p>
-  <strong>Paid:</strong>
-  <%= @job.paid %>
-</p>
-
-<p>
-  <strong>Salary:</strong>
-  <%= @job.salary %>
-</p>
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <table border="0" class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th><strong>Title:</strong></th>
+          <th><%= @job.title %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Type:</strong></td>
+          <td><%= @job.type_of_opportunity %></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><strong>Company name:</strong></th>
+          <th><%= @job.company_name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Description text:</strong></td>
+          <td><%= @job.description_text %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Location:</strong></th>
+          <th><%= @job.location %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Paid:</strong></td>
+          <td><%= @job.paid %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Fulltime:</strong></th>
+          <th><%= @job.fulltime %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Salary:</strong></td>
+          <td><%= @job.salary %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Confirmed:</strong></th>
+          <th><%= @job.confirmed %></th>
+        </tr>
+      </thead>       
+    </table>
+    <table border="0" class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <td><strong>Dates:</strong></td>
+          <td class= "date-adjust"><%= @job.starting_date %> <strong> &nbsp; &nbsp; &nbsp; &nbsp; To </strong></td>
+          <td><%= @job.closing_date %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
 
 <% if current_user == @job.user %>
-  <h3>Applications: </h3>
-  <% @job.comments.each do |comment| %>
-    <div class="well">
-      <%= comment.body %> <br>
-      <%= comment.user %> <br>
-    </div>
+<h3>Applications: </h3>
+<% @job.comments.each do |comment| %>
+<div class="well">
+  <%= comment.body %> <br>
+  <%= comment.user %> <br>
+</div>
 
-  <% end %>
+<% end %>
 <% end %>
 
 <h3>New Application:</h3>
 <%= form_for [@job, Comment.new] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
-  </div>
-  <%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
+<div class="form-group">
+  <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
+</div>
+<%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
 <% end %>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |

@@ -1,81 +1,106 @@
+<style type="text/css">
+  .container{
+    font-size: 16px;
+  }
+  .date-adjust{
+    position: relative;
+    left: 90px;
+  }
+  .col-md-10{
+    padding-top: 30px;
+  /*border-style:groove ;
+  border-width: 1px;*/
+}
+</style>
+
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <table border="0" class="table table-striped table-hover ">      
+      <col width = "190">
 
-<p>
-  <strong>Title:</strong>
-  <%= @internship.title %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @internship.type_of_opportunity %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @internship.company_name %>
-</p>
-
-<p>
-  <strong>Closing date:</strong>
-  <%= @internship.closing_date %>
-</p>
-
-<p>
-  <strong>Starting date:</strong>
-  <%= @internship.starting_date %>
-</p>
-
-<p>
-  <strong>Description text:</strong>
-  <%= @internship.description_text %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @internship.location %>
-</p>
-
-<p>
-  <strong>Confirmed:</strong>
-  <%= @internship.confirmed %>
-</p>
-
-<p>
-  <strong>Fulltime:</strong>
-  <%= @internship.fulltime %>
-</p>
-
-<p>
-  <strong>Paid:</strong>
-  <%= @internship.paid %>
-</p>
-
-<p>
-  <strong>Salary:</strong>
-  <%= @internship.salary %>
-</p>
-
-<p>
-  <strong>User id:</strong>
-  <%= @internship.user_id %>
-</p>
-
+      <thead>
+        <tr>
+          <th><strong>Title:</strong></th>
+          <th><%= @internship.title %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Type:</strong></td>
+          <td><%= @internship.type_of_opportunity %></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><strong>Company name:</strong></th>
+          <th><%= @internship.company_name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Description text:</strong></td>
+          <td><%= @internship.description_text %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Location:</strong></th>
+          <th><%= @internship.location %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Paid:</strong></td>
+          <td><%= @internship.paid %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Fulltime:</strong></th>
+          <th><%= @internship.fulltime %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Salary:</strong></td>
+          <td><%= @internship.salary %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Confirmed:</strong></th>
+          <th><%= @internship.confirmed %></th>
+        </tr>
+      </thead>       
+    </table>
+    <table border="0" class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <td><strong>Dates:</strong></td>
+          <td class= "date-adjust"><%= @internship.starting_date %> <strong> &nbsp; &nbsp; &nbsp; &nbsp; To </strong></td>
+          <td><%= @internship.closing_date %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
 <% if current_user == @internship.user %>
-  <h3>Applications: </h3>
-  <% @internship.comments.each do |comment| %>
-    <div class="well">
-      <%= comment.body %> <br>
-      <%= comment.user %> <br>
-    </div>
-  <% end %>
+<h3>Applications: </h3>
+<% @internship.comments.each do |comment| %>
+<div class="well">
+  <%= comment.body %> <br>
+  <%= comment.user %> <br>
+</div>
+<% end %>
 <% end %>
 
 <h3>New Application:</h3>
 <%= form_for [@internship, Comment.new] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
-  </div>
-  <%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
+<div class="form-group">
+  <%= f.text_area :body, class: "form-control", placeholder: "Add an application" %>
+</div>
+<%= f.submit  class: "btn btn-primary", value: "Submit Application" %>
 <% end %>
 
 <%= link_to 'Edit', edit_internship_path(@internship) %> |

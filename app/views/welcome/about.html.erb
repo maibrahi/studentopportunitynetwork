@@ -1,28 +1,42 @@
-<h1>Welcome#about</h1>
-<p>Find me in app/views/welcome/about.html.erb</p>
+<style> 
+  .container{
+    font family: Calibro, Arial, Canadara;
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 22px;
+    padding-left: 20px;
+  }
+  .about-us{
+    padding-bottom: 23px;
+    padding-top: 15px;
+  }
+  .img-circle{
+    border-radius: 50%;
+  }
+  .col-md-5{
+    position: relative;
+    left: 30px;
+  }
+</style> 
+<h1>About us</h1>
 <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-7">
+      <p class = "about-us">Though there already exists job hunting websites, Student opportunity network is a job listing website designed for students, by students. From internships, to enhancing ones experience, to part time positions, our websites cater to a variety of student needs.</p>
+      <p class = "about-us"> Established in 2016, the goal for this website is to aid students in their search for opportunities, having been in a similiar position ourselves at one point. The majority of these postings are specifically targetting people in third level education, thus when appling for a vaccany you will be competing on a level playing field with the other applicants.</p>
     </div>
+    <div class="col-md-5">
+      <%= image_tag("/assets/resize-logo.png",:class=> 'img-circle') %>
+    </div>
+    <div class="col-md-12">
+     <p class = "about-us"> We also seek to provide companys with direct access to the incoming work force of tomorrow, giving them the space they need to advertise vaccancies, and also any internship programmes that they might offer.</p>
+     <p>space for input from client</p>
+   </div>
+ </div>
+
+ <hr>
+ <footer>
+  <p>&copy; 2015 Company, Inc.</p>
+ </footer>
+</div>

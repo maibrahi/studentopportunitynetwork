@@ -1,45 +1,73 @@
+<style type="text/css">
+.container{
+  font-size: 16px;
+}
+.date-adjust{
+  position: relative;
+  left: 90px;
+}
+.col-md-10{
+  padding-top: 30px;
+  font-size: 18px;
+  /*border-style:groove ;
+  border-width: 1px;*/
+}
+</style>
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @competition.title %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @competition.type_of_opportunity %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @competition.company_name %>
-</p>
-
-<p>
-  <strong>Closing date:</strong>
-  <%= @competition.closing_date %>
-</p>
-
-<p>
-  <strong>Starting date:</strong>
-  <%= @competition.starting_date %>
-</p>
-
-<p>
-  <strong>Description text:</strong>
-  <%= @competition.description_text %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @competition.location %>
-</p>
-
-<p>
-  <strong>Confirmed:</strong>
-  <%= @competition.confirmed %>
-</p>
-
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <table border="0" class="table table-striped table-hover ">
+    <col width = "190">
+      <thead>
+      
+        <tr>
+          <th><strong>Title:</strong></th>
+          <th  id='main-table' ><%= @competition.title %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Type:</strong></td>
+          <td><%= @competition.type_of_opportunity %></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><strong>Company name:</strong></th>
+          <th  id='main-table' ><%= @competition.company_name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Description text:</strong></td>
+          <td><%= @competition.description_text %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Location:</strong></th>
+          <th><%= @competition.location %></th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th><strong>Confirmed:</strong></th>
+          <th><%= @competition.confirmed %></th>
+        </tr>
+      </thead>       
+    </table>
+    <table border="0" class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <td><strong>Dates:</strong></td>
+          <td class= "date-adjust"><%= @competition.starting_date %> <strong> &nbsp; &nbsp; &nbsp; &nbsp; To </strong></td>
+          <td><%= @competition.closing_date %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
 <% if current_user == @competition.user %>
   <h3>Applications: </h3>
   <% @competition.comments.each do |comment| %>

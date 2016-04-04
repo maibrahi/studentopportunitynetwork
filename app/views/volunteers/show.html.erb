@@ -1,44 +1,75 @@
+<style type="text/css">
+.container{
+  font-size:16px;
+  text-align: left;
+}
+.date-adjust{
+  position: relative;
+  left: 90px;
+}
+.col-md-10{
+  padding-top: 30px;
+  text-align: left; /
+  /*border-style:groove ;
+  border-width: 1px;*/
+}
+</style>
+
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <table border="0" class="table table-striped table-hover ">
+      <col width = "190">
 
-<p>
-  <strong>Title:</strong>
-  <%= @volunteer.title %>
-</p>
+      <thead>
+        <tr>
+          <th><strong>Title:</strong></th>
+          <th><%= @volunteer.title %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Type:</strong></td>
+          <td><%= @volunteer.type_of_opportunity %></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th><strong>Company name:</strong></th>
+          <th><%= @volunteer.company_name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Description text:</strong></td>
+          <td><%= @volunteer.description_text %></td>
+        </tr>
+      </tbody> 
+      <thead>
+        <tr>
+          <th><strong>Location:</strong></th>
+          <th><%= @volunteer.location %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><strong>Confirmed:</strong></th>
+          <th><%= @volunteer.confirmed %></th>
+        </tr>
+      </tbody>       
+    </table>
+    <table border="0" class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <td><strong>Dates:</strong></td>
+          <td class= "date-adjust"><%= @volunteer.starting_date %> <strong> &nbsp; &nbsp; &nbsp; &nbsp; To </strong></td>
+          <td><%= @volunteer.closing_date %></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @volunteer.type_of_opportunity %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @volunteer.company_name %>
-</p>
-
-<p>
-  <strong>Closing date:</strong>
-  <%= @volunteer.closing_date %>
-</p>
-
-<p>
-  <strong>Starting date:</strong>
-  <%= @volunteer.starting_date %>
-</p>
-
-<p>
-  <strong>Description text:</strong>
-  <%= @volunteer.description_text %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @volunteer.location %>
-</p>
-
-<p>
-  <strong>Confirmed:</strong>
-  <%= @volunteer.confirmed %>
-</p>
 
 <% if current_user == @volunteer.user %>
   <h3>Applications: </h3>
