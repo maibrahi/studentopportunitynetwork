@@ -2,6 +2,8 @@
 
 = The student opportunity network is a website that allows students to quickly search for internships, part-time jobs, volunteering programs and competitions that might be relevant to them. The web app is currently in development and any bug reports would be greatly appreciated.
 
+This folder contains all the necessary files to run the entire website after a few setup commands(detailed below) on a single machine. The web server runs allong side the database in the current configuration. All of the controllers, views and models are available in the sub-folders as usual for a rails app.
+
 This web application currently requires splite to be installed when running in the development environment and postgres when running in the deployment environment
 
 To run this web app locally:
