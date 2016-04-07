@@ -45,7 +45,7 @@
 			<ul class="nav nav-tabs">
 				<li><%= link_to "Home", root_path%></li>
 				<li><%= link_to "About Us", welcome_about_path%></li>
-				<li><%= link_to "Contact", welcome_contact_path%></li>
+				<!--<li><%= link_to "Contact", welcome_contact_path%></li>-->
 			</ul>
 		<% else %>
 			<ul class="nav nav-tabs">
@@ -55,7 +55,7 @@
 				<li><%= link_to "Volunteering", volunteers_path%></li>
 				<li><%= link_to "My Profile", :action=>"edit", :controller=>"devise/registrations"%></li>
 				<li><%= link_to "About Us", welcome_about_path%></li>
-				<li><%= link_to "Contact", welcome_contact_path%></li>
+				<!--<li><%= link_to "Contact", welcome_contact_path%></li>-->
 			</ul>
 		<% end %>
 
@@ -84,7 +84,10 @@
 
 	</div>
 
-
-
 </body>
+
+<footer>
+	<p>&copy; Contact us at studentopportunitynetwork@gmail.com for any enquiries you may have.</p>
+</footer>
+
 </html>
