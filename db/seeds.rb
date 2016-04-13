@@ -18,7 +18,7 @@ Job.create(
 	location: "Leopardstown",
 	company_name: "Clayton Hotel",
 	closing_date: "2016-08-06 12:00:00",
-	description_text: "CONSISTENT DELIVERY OF THE HIGHEST STANDARDS OF SERVICE. TO PROMOTE A PROFESSIONAL AND POSITIVE IMAGE OF THE HOTEL AND ITS OPERATION TO ALL HOTELS GUESTS AND PATRONS. TO CONTRIBUTE TO THE HOTELS SUCCESSFUL OPERATION, Min of 2 years experience required",
+	description_text: "Consistent delivery of the highest standards of service. To promote the professional and positive image of the hotel and its operation to all hotel guests and patrons. To contribute to the hotels successful operation, Min of 2 years experience required",
 	fulltime:"Yes",
 	salary: "experience depending"
 	)
